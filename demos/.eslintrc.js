@@ -1,3 +1,7 @@
+const rule = {
+  'no-trailing-spaces': ['error', { skipBlankLines: true }],
+  'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1, maxBOF: 0 }],
+};
 module.exports = {
   env: {
     browser: true,
@@ -23,5 +27,6 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    ...rule,
   },
 };
