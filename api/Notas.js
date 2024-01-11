@@ -26,3 +26,7 @@
  */
 
 // En las pruebas de integración limitar alcance para evitar corromper datos de la db
+
+/** 22-e2e
+ * *Se utiliza una db de pruebas a la cual insertarle info
+ */
