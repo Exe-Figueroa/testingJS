@@ -24,3 +24,5 @@
  * *Para utilizar supertest se debe configurar jest para poder usar su sintaxis.
  * *Las pruebas de integración van en carpeta aparte
  */
+
+// En las pruebas de integración limitar alcance para evitar corromper datos de la db

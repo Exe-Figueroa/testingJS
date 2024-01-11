@@ -24,7 +24,7 @@ describe('Test for BooksService', () => {
     test('should return a list book', async () => {
       // Arrange
       const fakeBooks = generateManyBooks(8);
-      mockSpyGetAll.mockReturnValue(fakeBooks); // Retorna de manera directa.
+      // mockSpyGetAll.mockReturnValue(fakeBooks); // Retorna de manera directa.
       mockSpyGetAll.mockResolvedValue(fakeBooks);
       // Resuelve como una promesa (Sirve para async fn()).
       // Act

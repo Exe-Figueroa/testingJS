@@ -16,12 +16,19 @@ describe('Test for hello endpoint', () => {
   });
 
   describe('test for [GET] /', () => {
-    test('should return "Hello World!"', () => request(app)
-      .get('/')
-      .expect(200)
-      .then((response) => {
-        console.log({ response });
-        expect(response.text).toEqual('Hello World!');
-      }));
+    // test('should return "Hello World!"', () => request(app)
+    //   .get('/')
+    //   .expect(200)
+    //   .then((response) => {
+    //     console.log({ response });
+    //     expect(response.text).toEqual('Hello World!');
+    //   }));
+    // // Más fácil hacerlo con async y await
+    test('should return "Hello World!"', async () => {
+      const response = await request(app).get('/');
+      console.log({ response });
+      expect(response.status).toEqual(200);
+      expect(response.text).toEqual('Hello World!');
+    });
   });
 });
