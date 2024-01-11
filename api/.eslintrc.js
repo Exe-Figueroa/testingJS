@@ -1,6 +1,8 @@
 const rule = {
   'no-trailing-spaces': ['error', { skipBlankLines: true }],
   'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1, maxBOF: 0 }],
+  // 'eslint no-plusplus': ['error', { allowForLoopAfterthoughts: false }],
+  'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 };
 
 module.exports = {

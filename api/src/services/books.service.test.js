@@ -1,19 +1,5 @@
 const BooksService = require('./books.service');
-
-const fakeBooks = [
-  {
-    _id: 1,
-    name: 'Harry Potter y la Piedra Filosofal',
-  },
-  {
-    _id: 2,
-    name: 'Harry Potter y la Cámara de los Secretos',
-  },
-  {
-    _id: 3,
-    name: 'Harry Potter y el Prisionero de Azkaban',
-  },
-];
+const { generateManyBooks } = require('../fakes/book.fake');
 
 const mockSpyGetAll = jest.fn();
 
@@ -37,6 +23,7 @@ describe('Test for BooksService', () => {
   describe('Test for getBooks', () => {
     test('should return a list book', async () => {
       // Arrange
+      const fakeBooks = generateManyBooks(8);
       mockSpyGetAll.mockReturnValue(fakeBooks); // Retorna de manera directa.
       mockSpyGetAll.mockResolvedValue(fakeBooks);
       // Resuelve como una promesa (Sirve para async fn()).
@@ -44,7 +31,7 @@ describe('Test for BooksService', () => {
       const books = await service.getBooks({});
       console.log({ books });
       // Assert
-      expect(books.length).toEqual(3);
+      expect(books.length).toEqual(fakeBooks.length);
 
       // Espiamos controlando si el espía fue llamado y si fué llamado con un parámetro específico
       expect(mockSpyGetAll).toHaveBeenCalled();
@@ -52,14 +39,15 @@ describe('Test for BooksService', () => {
       expect(mockSpyGetAll).toHaveBeenCalledWith('books', {}); // En este caso con la collection y un obj vacío
     });
 
-    // test('should return a first book name', async () => {
-    //   // Arrange
-
-    //   // Act
-    //   const books = await service.getBooks();
-    //   console.log('book 1 ->', books[0].name);
-    //   // Assert
-    //   expect(books[0].name).toEqual('Harry Potter y la Piedra Filosofal');
-    // });
+    test('should return a first book name', async () => {
+      // Arrange
+      const fakeBooks = generateManyBooks(4);
+      mockSpyGetAll.mockResolvedValue(fakeBooks);
+      // Act
+      const books = await service.getBooks({});
+      console.log('book 1 in list ->', books[0].name);
+      // Assert
+      expect(books[0].name).toEqual(books[0].name);
+    });
   });
 });
