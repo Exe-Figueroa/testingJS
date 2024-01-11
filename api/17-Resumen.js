@@ -8,3 +8,11 @@
  * *Mocks => Stubs + Spies, a veces pueden estar ya pre-programados
  *
  */
+
+/** 19- Spies
+ * *Prueba de caja blanca:
+ *  ?Se toma en cuenta el trabajo interno de la operación
+ * *Prueba de caja negra:
+ *  ?Solo se ingresa un valor y se evalúa la salida
+ * * Para hacer la prueba se utilizará jest.fn() que permite usar fn y mocks
+ */

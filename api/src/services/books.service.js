@@ -6,8 +6,8 @@ class BooksService {
     this.mongoDB = new MongoLib(); // Vamos a hacer mocking para no usar la dependencia
   }
 
-  async getBooks(query) {
-    const books = await this.mongoDB.getAll(this.collection, query);
+  async getBooks(/* query */) {
+    const books = await this.mongoDB.getAll(this.collection, {}); // TODO: reemplazar obj por query
     /**
      * *La query es opcional
      * *Por si quiero especificar lo que quiero traer de la db.
