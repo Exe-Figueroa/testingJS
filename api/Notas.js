@@ -16,3 +16,11 @@
  *  ?Solo se ingresa un valor y se evalúa la salida
  * * Para hacer la prueba se utilizará jest.fn() que permite usar fn y mocks
  */
+
+/** 20- Configurando supertest en el API
+ * *End to End => Pruebas de integración total:
+ *  ?Se pruevan varias cosas a la vez para ver como funcionan entre sí incluyendo db y dependencias
+ * *Integration test => pruebas a varias cosas a la vez excluyendo terceros (API, DB, etc.)
+ * *Para utilizar supertest se debe configurar jest para poder usar su sintaxis.
+ * *Las pruebas de integración van en carpeta aparte
+ */
