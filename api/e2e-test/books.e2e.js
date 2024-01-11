@@ -61,7 +61,7 @@ describe('Test for books', () => {
       console.log({ seedData });
       // Assert
       // expect(response.status).toEqual(200);
-      expect(response.body.length).toEqual(seedData.insertedCount );
+      expect(response.body.length).toEqual(seedData.insertedCount);
     });
   });
 });
