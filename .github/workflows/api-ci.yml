@@ -29,3 +29,46 @@ jobs:
       - name: run unit test
         shell: bash
         run: npm run test
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: ./api/package-lock.json
+      - name: install
+        shell: bash
+        run: npm ci
+      - name: run linter
+        shell: bash
+        run: npm run lint
+  e2e:
+    runs-on: ubuntu-latest
+    container:
+      image: node:18
+
+    service:
+      mongo-e2e:
+        image: mongo:4.4
+        ports:
+          27017:27017
+        env:
+          MONGO_INIT_DB_ROOT_USERNAME: test
+          MONGO_INIT_DB_ROOT_PASSWORD: test123
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: install
+        shell: bash
+        run: npm ci
+      - name: run e2e
+        shell: bash
+        run: npm run e2e books.e2e.js
+        env:
+          MONGO_DB_NAME: pruebaTest
+          MONGO_URL: 'mongodb://facu123:45447663@ac-qnpiicr-shard-00-00.ifrtng7.mongodb.net:27017,ac-qnpiicr-shard-00-01.ifrtng7.mongodb.net:27017,ac-qnpiicr-shard-00-02.ifrtng7.mongodb.net:27017/?ssl=true&replicaSet=atlas-7jm2ng-shard-0&authSource=admin&retryWrites=true&w=majority'
+
