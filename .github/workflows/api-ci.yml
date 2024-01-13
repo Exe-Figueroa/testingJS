@@ -70,5 +70,4 @@ jobs:
         run: npm run e2e books.e2e.js
         env:
           MONGO_DB_NAME: pruebaTest
-          MONGO_URL: 'mongodb://facu123:45447663@ac-qnpiicr-shard-00-00.ifrtng7.mongodb.net:27017,ac-qnpiicr-shard-00-01.ifrtng7.mongodb.net:27017,ac-qnpiicr-shard-00-02.ifrtng7.mongodb.net:27017/?ssl=true&replicaSet=atlas-7jm2ng-shard-0&authSource=admin&retryWrites=true&w=majority'
-
+          MONGO_URL: mongodb://test:test123@mongo-e2e:27017/test
